@@ -9,3 +9,10 @@
     background-color: #B4452C;
     color: white;
 }
+
+.hide{
+display: none;
+}
+.show{
+    display: flex;
+}

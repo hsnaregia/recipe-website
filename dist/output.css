@@ -686,6 +686,10 @@ video {
   gap: 3rem;
 }
 
+.text-balance {
+  text-wrap: balance;
+}
+
 .rounded-creative {
   border-radius: 38% 62% 24% 76% / 47% 61% 39% 53%;
 }
