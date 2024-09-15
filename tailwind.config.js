@@ -8,7 +8,12 @@ module.exports = {
       '--btn':'#B4452C',
       '--box':'white',
     },
-    extend: {},
+    extend: {
+      borderRadius:{
+        'creative' : '38% 62% 24% 76% / 47% 61% 39% 53%',
+      }
+    },
+   
   },
   plugins: [],
 }

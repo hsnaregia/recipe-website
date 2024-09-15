@@ -682,6 +682,14 @@ video {
   justify-content: space-evenly;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
+.rounded-creative {
+  border-radius: 38% 62% 24% 76% / 47% 61% 39% 53%;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -690,8 +698,8 @@ video {
   border-radius: 0.5rem;
 }
 
-.border {
-  border-width: 1px;
+.border-solid {
+  border-style: solid;
 }
 
 .-border--text {
