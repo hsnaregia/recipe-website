@@ -242,12 +242,17 @@ async function random_items(){
     try {
       let fetched_data = await fetch(random_url);
       let response = await fetched_data.json();
-      console.log(random_meals);
-      random_meals[index] = response.meals[0];
       
-      document.getElementById(`random_itm_txt_${index+1}`).innerHTML = response.meals[0].strMeal;
+      random_meals[index] = response.meals[0];
+      if(response.meals[0].strMeal.length >30){
+        
+      document.getElementById(`random_itm_txt_${index+1}`).innerHTML = (response.meals[0].strMeal.slice(0,30) + "...");
       document.getElementById(`random_itm_img_${index+1}`).src = response.meals[0].strMealThumb;
 
+      }else{
+        document.getElementById(`random_itm_txt_${index+1}`).innerHTML = response.meals[0].strMeal;
+        document.getElementById(`random_itm_img_${index+1}`).src = response.meals[0].strMealThumb;
+      }
 
     } catch (error) {
       console.error("Error fetching data:", error); 
