@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="animations.css" />
     <title>فودگردی</title>
   </head>
-  <body class="-bg--bkg">
-    <nav class="w-full h-[10vh] flex justify-center items-center flex-row">
+  <body class="-bg--bkg flex justify-center items-center flex-col">
+    <nav class="w-full h-[10vh] justify-center items-center flex-row show">
       <div class="h-full w-[30%] flex justify-center items-center">
         <h1 class="font-extrabold text-3xl font-mono" id="logo">فودگردی</h1>
       </div>
@@ -55,7 +55,7 @@
         </ul>
       </div>
     </nav>
-    <div class="w-full h-[90vh] flex justify-center items-center flex-row">
+    <div class="w-full h-[90vh] justify-center items-center flex-row show " id="bot_main_menu">
       <div
         class="w-[30%] h-[80%] flex justify-end items-center -bg--btn rounded-creative border-solid"
       >
@@ -150,6 +150,29 @@
         </div>
       </div>
     </div>
+    <!-- part if menu was more than 1 item -->
+    <div id="search_item" class="w-[70vw] h-[100vh] items-center justify-center flex-col  hide">
+
+
+    </div>
+
+    <!-- this part is for recipe container -->
+    <div
+      id="recipe_container"
+      class="w-full h-auto flex-col justify-center items-center hide"
+    >
+      <div
+        class="w-[100vw] h-[10vh] items-center px-20 pt-5 cursor-pointer show"
+        id="recipe_container_top"
+      >
+        <img src="/assets/back.png" alt="return" class="w-8 h-8" id="return" />
+      </div>
+      <div
+        id="recipe_container_bot"
+        class="w-[70%] h-[80vh] -bg--btn justify-center items-center p-5 m-5 show"
+      ></div>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
