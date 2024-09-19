@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 .creative_row_1 {
-    @apply w-full h-[20%] flex flex-row justify-evenly items-center gap-5;
+    @apply w-full h-[20%] flex flex-row justify-evenly items-center gap-28;
   }
 
 .card{
-    @apply w-[18%] h-[90%] flex justify-center items-center flex-col -bg--text ;
+    @apply w-[15%] h-[80%] flex justify-around items-center flex-col  rounded-2xl p-5 -bg--box;
 }
 
 .card_img{
-    @apply w-[80%] h-[50%] -bg--btn;
+    @apply w-[80%] h-[50%] ;
 }
 
 .card_txt{
-    @apply w-[80%] h-[50%] text-center flex justify-center items-center text-[0.8rem] font-sans font-semibold -bg--bkg cursor-pointer;
+    @apply w-[80%] h-[50%] text-center flex justify-center items-center text-[0.8rem] font-sans font-semibold  cursor-pointer;
 }
