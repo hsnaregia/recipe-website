@@ -1,5 +1,6 @@
-
 const items = [];
+let all_meals =[];
+let random_meals = [];
 const btn = document.getElementById("search_btn");
 const txt = document.getElementById("change_txt");
 
@@ -10,11 +11,10 @@ const lock = document.getElementById("lock_txt");
 const srch_form = document.getElementById("form");
 
 const main = document.getElementById("bot_main_menu");
+const nav = document.getElementById('nav');
 const srch_itm = document.getElementById("search_item");
 const returnizer = document.getElementById("return");
 const recipe_container = document.getElementById("recipe_container");
-
-
 
 let allRows = 0;
 for (let index = 1; index < 7; index++) {
@@ -31,99 +31,100 @@ function start() {
         let id = this.id.slice(2, 3);
         item.classList.remove("activate");
         menu(parseInt(id));
-        
       });
     }
   });
-
+ 
 }
-// function return_menu() {
-  //   returnizer.addEventListener("onclick", function () {
-    //     console.log("hello");
-    //     recipe_container.classList.add("hide");
-    //     recipe_container.classList.remove("show");
-    //     start();
-    //   });
-    // }
-    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // return_menu();
+
+
+function return_menu() {
+  
+  returnizer.addEventListener("click", function () {
+    all_meals=[];
+    random_meals=[];
+    recipe_container.classList.add("hide");
+    recipe_container.classList.remove("show");
+    main.classList.add('show');
+    main.classList.remove('hide');
+    nav.classList.add('show');
+    nav.classList.remove('hide');
+    delete_ercipe_menu(allRows);
+    start();
+  });
+}
+
 function menu(key) {
-      for (let index = 0; index < 6; index++) {
-        items[index].classList.remove("activate");
-      }
-      if(allRows != 0){
-        delete_ercipe_menu(allRows);
-      }
-      
-      switch (key) {
-        case 1:
-          allRows=0;
-          items[0].classList.add("activate");
-          img_srch.classList.remove("hide");
-          main.classList.add('show');
-          main.classList.remove('hide');
-          srch_itm.classList.remove('show');
-          srch_itm.classList.add('hide');
-          img_srch.classList.add("show");
-          input_sr.classList.remove("hide");
-          input_sr.classList.add("show");
-          srch_btn.classList.remove("hide");
-          srch_btn.classList.add("show");
-          lock.classList.remove("show");
-          lock.classList.add("hide");
-          txt.innerText = "اسم غذای مورد نظر !";
-          
-          
-          break;
-          case 2:
-            
-            allRows=0;
-            items[1].classList.add("activate");
-            img_srch.classList.remove("hide");
-            main.classList.add('show');
-            main.classList.remove('hide');
-            srch_itm.classList.remove('show');
-            srch_itm.classList.add('hide');
-            img_srch.classList.add("show");
-            input_sr.classList.remove("hide");
-            input_sr.classList.add("show");
+  for (let index = 0; index < 6; index++) {
+    items[index].classList.remove("activate");
+  }
+  if (allRows != 0) {
+    delete_ercipe_menu(allRows);
+  }
+
+  switch (key) {
+    case 1:
+      allRows = 0;
+      items[0].classList.add("activate");
+      img_srch.classList.remove("hide");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
+      img_srch.classList.add("show");
+      input_sr.classList.remove("hide");
+      input_sr.classList.add("show");
+      srch_btn.classList.remove("hide");
+      srch_btn.classList.add("show");
+      lock.classList.remove("show");
+      lock.classList.add("hide");
+      txt.innerText = "اسم غذای مورد نظر !";
+
+      break;
+    case 2:
+      allRows = 0;
+      items[1].classList.add("activate");
+      img_srch.classList.remove("hide");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
+      img_srch.classList.add("show");
+      input_sr.classList.remove("hide");
+      input_sr.classList.add("show");
       srch_btn.classList.remove("hide");
       srch_btn.classList.add("show");
       lock.classList.remove("show");
       lock.classList.add("hide");
       txt.innerText = "حرف اول انگلیسی دستور پخت !";
-      
-      
+
       break;
-      case 3:
-        
-        allRows=0;
-        items[2].classList.add("activate");
-        img_srch.classList.remove("show");
-        main.classList.add('show');
-        main.classList.remove('hide');
-        srch_itm.classList.remove('show');
-        srch_itm.classList.add('hide');
-        img_srch.classList.add("hide");
-        input_sr.classList.remove("show");
-        input_sr.classList.add("hide");
-        srch_btn.classList.remove("hide");
-        srch_btn.classList.add("show");
-        lock.classList.remove("show");
-        lock.classList.add("hide");
-        txt.innerText = "یه غذای رندوم با جستجو!";
-        
-        
-        break;
-        case 4:
-          
-          allRows=0;
-          items[3].classList.add("activate");
-          img_srch.classList.remove("hide");
-          main.classList.add('show');
-          main.classList.remove('hide');
-          srch_itm.classList.remove('show');
-          srch_itm.classList.add('hide');
+    case 3:
+      allRows = 0;
+      items[2].classList.add("activate");
+      img_srch.classList.remove("show");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
+      img_srch.classList.add("hide");
+      input_sr.classList.remove("show");
+      input_sr.classList.add("hide");
+      srch_btn.classList.remove("hide");
+      srch_btn.classList.add("show");
+      lock.classList.remove("show");
+      lock.classList.add("hide");
+      txt.innerText = "یه غذای رندوم با جستجو!";
+
+      break;
+    case 4:
+      allRows = 0;
+      items[3].classList.add("activate");
+      img_srch.classList.remove("hide");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
       img_srch.classList.add("show");
       input_sr.classList.remove("hide");
       input_sr.classList.add("show");
@@ -132,18 +133,16 @@ function menu(key) {
       lock.classList.remove("show");
       lock.classList.add("hide");
       txt.innerText = "یک ماده اصلی به انگلیسی !";
-      
-      
+
       break;
-      case 5:
-        
-        allRows=0;
-        items[4].classList.add("activate");
-        img_srch.classList.remove("hide");
-        main.classList.add('show');
-        main.classList.remove('hide');
-        srch_itm.classList.remove('show');
-        srch_itm.classList.add('hide');
+    case 5:
+      allRows = 0;
+      items[4].classList.add("activate");
+      img_srch.classList.remove("hide");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
       img_srch.classList.add("show");
       input_sr.classList.remove("hide");
       input_sr.classList.add("show");
@@ -152,108 +151,97 @@ function menu(key) {
       lock.classList.remove("show");
       lock.classList.add("hide");
       txt.innerText = "کشور مورد علاقت !";
-      
-      
+
       break;
-      case 6:
-        allRows=0;
-        items[5].classList.add("activate");
-        img_srch.classList.remove("hide");
-        img_srch.classList.add("show");
-        input_sr.classList.remove("hide");
-        main.classList.add('show');
-        main.classList.remove('hide');
-        srch_itm.classList.remove('show');
-        srch_itm.classList.add('hide');
-        input_sr.classList.add("show");
-        srch_btn.classList.remove("hide");
-        srch_btn.classList.add("show");
-        lock.classList.remove("show");
-        lock.classList.add("hide");
-        txt.innerText = "دسته های غذایی مختلف !";
-        
-        
-        break;
-        default:
-          alert("no choice");
-          break;
-        }
+    case 6:
+      allRows = 0;
+      items[5].classList.add("activate");
+      img_srch.classList.remove("hide");
+      img_srch.classList.add("show");
+      input_sr.classList.remove("hide");
+      main.classList.add("show");
+      main.classList.remove("hide");
+      srch_itm.classList.remove("show");
+      srch_itm.classList.add("hide");
+      input_sr.classList.add("show");
+      srch_btn.classList.remove("hide");
+      srch_btn.classList.add("show");
+      lock.classList.remove("show");
+      lock.classList.add("hide");
+      txt.innerText = "دسته های غذایی مختلف !";
+
+      break;
+    default:
+      alert("no choice");
+      break;
+  }
 }
- // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
- function recipe_srch() {
+function recipe_srch() {
   let code;
   let food_name = "";
 
-  srch_form.addEventListener('submit', function(event) { 
+  srch_form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-   
     for (let index = 0; index < items.length; index++) {
-      console.log(items[index].classList.contains('activate'));
-
-      if (items[index].classList.contains('activate')) {
-        console.log("hi");
+      if (items[index].classList.contains("activate")) {
         code = items[index].id;
-        code = code.slice(2,3);
+        code = code.slice(2, 3);
         console.log(code);
-        food_name = "";  
+        food_name = "";
         break;
       }
     }
-    console.log(items.id);
+   
     food_name = input_sr.value;
 
-    if (food_name === "") {
-      alert('پر کن'); 
+    if (food_name === "" & code !=3) {
+      alert("پر کن");
     } else if (code === 2 && food_name.length > 1) {
-      alert("کم ترش کن"); 
+      alert("کم ترش کن");
     } else {
-      fetch_data(code, food_name); 
+      fetch_data(code, food_name);
     }
   });
 }
 
-
-
-
-
-
-function fetch_data(code , food) {
-  const url = "https://www.themealdb.com/api/json/v1/1/random.php";
+function fetch_data(code, food) {
+  all_meals =[];
+  const url = "https://www.themealdb.com/api/json/v1/1/";
   let info = "";
   console.log(food);
   console.log(code);
-  if(code === 1){
-    info = `${url}?s=${food}`;
+  if (code == 1) {
+    info = `${url}search.php?s=${food}`;
     console.log(info);
-  }else if(code === 2){
-    info = `${url}?f=${food}`;
+  } else if (code == 2) {
+    info = `${url}search.php?f=${food}`;
     console.log(info);
-  }else if(code === 3){
-    info = `${url}?${food}`;
+  } else if (code == 3) {
+    info = `${url}random.php?${food}`;
     console.log(info);
-  }else if(code === 4){
-    info = `${url}?i=${food}`;
+  } else if (code == 4) {
+    info = `${url}filter.php?i=${food}`;
     console.log(info);
-  }else if(code === 5){
-    info = `${url}?a=${food}`;
+  } else if (code == 5) {
+    info = `${url}filter.php?a=${food}`;
     console.log(info);
-  }else{
-    info = `${url}?c=${food}`;
+  } else if (code == 6) {
+    info = `${url}filter.php?c=${food}`;
     console.log(info);
   }
   fetch(info)
-  .then((response) => response.json())
-  .then((data) => work_data(data));
+    .then((response) => response.json())
+    .then((data) => work_data(data));
 }
 
 function work_data(data) {
-  console.log(data.meals)
+  for( let index = 0 ; index <=data.meals.length ; index++){
+    all_meals[index] = data.meals[index]; 
+  }
+  console.log(data.meals);
   if (data.meals == null) {
     alert("غذای مورد نظر پیدا نشد!!");
   } else {
@@ -261,98 +249,131 @@ function work_data(data) {
     main.classList.remove("show");
     srch_itm.classList.add("show");
     srch_itm.classList.remove("hide");
-    
-    
+
     if (data.meals.length == 1) {
-      
-      console.log('recipe page ...')
-    } 
-    else {
+      console.log("recipe page ...");
+    } else {
       let foodNumber = data.meals.length;
-      let foodRows = foodNumber/5;
-      generator(foodNumber , foodRows ,data);
+      let foodRows = foodNumber / 5;
+      generator(foodNumber, foodRows, data);
     }
-  } 
+  }
 }
 
-
-
-function generator(number , rows , data){
+function generator(number, rows, data) {
   let counter = 0;
-  let cardsInThisRow = Math.min(5, number - counter); 
-  
-  for(let index = 0 ; index < rows ; index++){
+  let cardsInThisRow = Math.min(5, number - counter);
+
+  for (let index = 0; index < rows; index++) {
     let rowDiv = document.createElement("div");
-    rowDiv.className = "creative_row_1"; 
-    rowDiv.id=`row${index}`;
+    rowDiv.className = "creative_row_1";
+    rowDiv.id = `row${index}`;
     srch_itm.appendChild(rowDiv);
-    
-    for(let jindex = 0 ; jindex < cardsInThisRow ; jindex++){
-      if(counter >=number)
-        break;
+
+    for (let jindex = 0; jindex < cardsInThisRow; jindex++) {
+      if (counter >= number) break;
       let card = document.createElement("div");
       card.className = "card";
       card.id = `recipe_${counter}`;
-      
+
       let cardTxt = document.createElement("h2");
-      cardTxt.className = "card_txt";
+      cardTxt.className = `card_txt`;
+      cardTxt.id=`meal_item_${counter}`;
       cardTxt.innerText = data.meals[counter].strMeal;
-      
+
       let cardImg = document.createElement("img");
       cardImg.className = "card_img";
       cardImg.src = data.meals[counter].strMealThumb;
-      
+
       card.appendChild(cardTxt);
       card.appendChild(cardImg);
-      
+
       rowDiv.appendChild(card);
-      
+      cardTxt.addEventListener('click' , function (){
+        click_handle(cardTxt.id , 1);
+      })
       counter++;
     }
     allRows++;
   }
 }
 
-
 // need work
-function delete_ercipe_menu(number){
-  for(let index = 0 ; index < number ; index++){
+function delete_ercipe_menu(number) {
+  for (let index = 0; index < number; index++) {
     document.getElementById(`row${index}`).remove();
   }
 }
 
-
-
-
-
-
 async function random_items() {
-  const random_meals = [];
+ 
   let random_url = "https://www.themealdb.com/api/json/v1/1/random.php";
-  
+
   for (let index = 0; index < 4; index++) {
     try {
       let fetched_data = await fetch(random_url);
       let response = await fetched_data.json();
-      
+
       random_meals[index] = response.meals[0];
       if (response.meals[0].strMeal.length > 30) {
         document.getElementById(`random_itm_txt_${index + 1}`).innerHTML =
-        response.meals[0].strMeal.slice(0, 30) + "...";
-        document.getElementById(`random_itm_img_${index + 1}`).src =
-        response.meals[0].strMealThumb;
-      } else {
+          response.meals[0].strMeal.slice(0, 20) + "...";
+        
+        
+      } else { 
         document.getElementById(`random_itm_txt_${index + 1}`).innerHTML =
-        response.meals[0].strMeal;
-        document.getElementById(`random_itm_img_${index + 1}`).src =
-        response.meals[0].strMealThumb;
+          response.meals[0].strMeal;
+        
       }
+      document.getElementById(`random_itm_img_${index + 1}`).src =
+          response.meals[0].strMealThumb;
+      document.getElementById(`random_itm_txt_${index + 1}`).className=`meal_item_${index+1}`;
+      document.getElementById(`random_itm_txt_${index + 1}`).addEventListener('click', function() {
+        click_handle((index + 1) , 0);  
+      });
+      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
 }
 
+function click_handle(id , opener) {
+  
+  let key ;
+
+ 
+  console.log(key);
+  if(opener == 0){
+    key = id-1;
+    data = random_meals[key];
+   
+  }else if(opener == 1){
+    key = String(id.slice(10,11));
+    key = parseInt(key);
+    data = all_meals[key];
+  }
+  main.classList.add('hide');
+  main.classList.remove('show');
+  srch_itm.classList.add('hide');
+  srch_itm.classList.remove('show');
+  nav.classList.add('hide');
+  nav.classList.remove('show');
+  recipe_container.classList.add('show');
+  recipe_container.classList.remove('hide');
+
+  console.log(data);
+  recipe_generator(data);
+
+}
+
+
+//  this part is under work
+function recipe_generator(data){
+
+}
+
 
 start();
 recipe_srch();
+return_menu();

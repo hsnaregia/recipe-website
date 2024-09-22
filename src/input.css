@@ -11,9 +11,9 @@
 }
 
 .card_img{
-    @apply w-[80%] h-[50%] ;
+    @apply w-[80%] h-[50%] rounded-lg;
 }
 
 .card_txt{
-    @apply w-[80%] h-[50%] text-center flex justify-center items-center text-[0.8rem] font-sans font-semibold  cursor-pointer;
+    @apply w-[100%] h-[90%] text-center flex justify-center items-center text-[0.8rem] font-sans font-semibold  cursor-pointer;
 }
