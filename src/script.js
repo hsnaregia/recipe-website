@@ -309,9 +309,11 @@ function generator(number, rows, data) {
 
 // need work
 function delete_ercipe_menu(number) {
-  console.log(number);
   for (let index = 0; index < number; index++) {
-    document.getElementById(`row${index+1}`).remove();
+    const row = document.getElementById(`row${index}`);
+    if(!!row){
+        document.getElementById(`row${index}`).remove();
+    }
   }
 }
 
