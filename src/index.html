@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="animations.css" />
     <title>فودگردی</title>
   </head>
-  <body class="-bg--bkg flex justify-center items-center flex-col">
+  <body class=" w-[98vw] h-[auto] -bg--bkg flex justify-center items-center  flex-col">
     <nav class="w-full h-[10vh] justify-center items-center flex-row show" id="nav">
       <div class="h-full w-[30%] flex justify-center items-center">
         <h1 class="font-extrabold text-3xl font-mono" id="logo">فودگردی</h1>
@@ -159,7 +159,7 @@
     <!-- this part is for recipe container -->
     <div
       id="recipe_container"
-      class="w-full h-auto flex-col justify-center items-center hide"
+      class="w-[100vw] h-auto flex-col justify-center items-center hide"
     >
       <div
         class="w-[100vw] h-[10vh] items-center px-20 pt-5 cursor-pointer "
@@ -171,9 +171,12 @@
         id="recipe_container_bot"
         class="w-[70%] h-auto -bg--box flex justify-center items-center flex-col p-5 m-5 rounded-[40px]"
       >
-      <div class=" w-[70%] h-[50vh] flex justify-center items-center rounded-3xl -bg--bkg show" id="recipe_img"><img src="" alt="recipe img" class="w-[90%] h-[80%] rounded-[40px]"></div>
-      <div class="w-[70%] h-[10vh]  -bg--bkg rounded-lg p-10 m-10 font-mono justify-center text-[2em] show" id="recipe_name_container"><h1 id="recipe_name">hello world</h1></div>
-      <div class="w-[70%] h-[60vh] p-10 show" id="recipe_ingredients_container"></div>
+      <div class=" w-[70%] h-[50vh] flex justify-center items-center rounded-3xl -bg--bkg show" id="recipe_img"><img src="" alt="recipe img" id="recipe_img_src" class="w-[70%] h-[80%] rounded-[40px]"></div>
+      <div class="w-[70%] h-[10vh]  -bg--bkg rounded-[20px] p-10 m-10 font-mono justify-center text-[2em] show" id="recipe_name_container"><h1 id="recipe_name"></h1></div>
+      <div class="w-[40%] h-auto p-10 show -bg--bkg rounded-[40px] show  items-center flex-col gap-5" id="recipe_ingredients_container">
+        
+      </div>
+      <div class="w-[70%] h-auto -bg--bkg rounded-[20px] m-10 p-10 show" id="instruction_container"><p class="w-full h-auto -bg--box p-10" id="instruction"></p></div>
     </div>
     </div>
 

@@ -15,5 +15,8 @@
 }
 
 .card_txt{
-    @apply w-[100%] h-[90%] text-center flex justify-center items-center text-[0.8rem] font-sans font-semibold  cursor-pointer;
+    @apply w-[100%] h-[90%] text-center flex justify-center  items-center text-[0.8rem] font-sans font-semibold  cursor-pointer;
+}
+.ingred_cont{
+    @apply w-auto h-[5vh] -bg--box flex justify-center items-center text-center rounded-full font-sans font-bold p-10;
 }

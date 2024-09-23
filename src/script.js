@@ -16,6 +16,15 @@ const srch_itm = document.getElementById("search_item");
 const returnizer = document.getElementById("return");
 const recipe_container = document.getElementById("recipe_container");
 
+// varaiables for recipe parts 
+const rcp_img = document.getElementById('recipe_img');
+const rcp_img_src = document.getElementById('recipe_img_src');
+const rcp_name_cnt = document.getElementById('recipe_name_container');
+const rcp_name = document.getElementById('recipe_name');
+const rcp_ing_cnt = document.getElementById('recipe_ingredients_container');
+const inst_cnt = document.getElementById('instruction_container');
+const inst = document.getElementById('instruction');
+// end of it
 let allRows = 0;
 for (let index = 1; index < 7; index++) {
   const element = document.getElementById(`li${index}`);
@@ -300,8 +309,9 @@ function generator(number, rows, data) {
 
 // need work
 function delete_ercipe_menu(number) {
+  console.log(number);
   for (let index = 0; index < number; index++) {
-    document.getElementById(`row${index}`).remove();
+    document.getElementById(`row${index+1}`).remove();
   }
 }
 
@@ -343,7 +353,6 @@ function click_handle(id , opener) {
   let key ;
 
  
-  console.log(key);
   if(opener == 0){
     key = id-1;
     data = random_meals[key];
@@ -368,9 +377,46 @@ function click_handle(id , opener) {
 }
 
 
-//  this part is under work
-function recipe_generator(data){
 
+
+let ingredients = [];
+let measures = [];
+function recipe_generator(data){
+  var check;
+  for(let index = 0; index < 20 ; index++ ){
+    console.log(data[`strIngredient${index}`]);
+    
+    ingredients[index] = data[`strIngredient${index+1}`];
+    measures[index] = data[`strMeasure${index+1}`];
+    if(data[`strIngredient${index}`] == "" || data[`strIngredient${index}`] ==''){
+      check = index;
+      break;
+    }
+  }
+
+  console.log(check);
+
+  rcp_img.classList.add('show');
+  rcp_img.classList.remove('hide');
+  rcp_img_src.src=data.strMealThumb;
+  rcp_name_cnt.classList.add('show');
+  rcp_name_cnt.classList.remove('hide');
+  rcp_name.innerText="";
+  rcp_name.innerText=data.strMeal;
+  rcp_ing_cnt.classList.add('show');
+  rcp_ing_cnt.classList.remove('hide');
+  for(let index = 0 ; index<check-1 ; index++ ){
+    let ing = document.createElement('div');
+    ing.classList.add('ingred_cont');
+    ing.innerText=`${ingredients[index]} == ${measures[index]}}`;
+    rcp_ing_cnt.appendChild(ing);
+  }
+
+
+  inst_cnt.classList.add('show');
+  inst_cnt.classList.remove('hide');
+  inst.innerText= data.strInstructions;
+  console.log(ingredients , measures);
 }
 
 
